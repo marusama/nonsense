@@ -2,18 +2,17 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 
-	"github.com/marusama/nonsense/deadcode2"
+	"github.com/marusama/nonsense/buckets"
 )
 
 func main() {
-	f := "/Users/bator.tsyrendylykov/dev/projects/src/hello-go"
-	res, err := deadcode2.Deadcode2(f)
+	a, err := strconv.Atoi(os.Args[1])
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println(err)
 		return
 	}
-	for _, s := range res {
-		fmt.Println(s)
-	}
+	buckets.Print(uint32(a), false)
 }
